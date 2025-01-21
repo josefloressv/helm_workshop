@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webapp-color
+  name: webapp-color-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp-color
+  template:
+    metadata:
+      labels:
+        app: webapp-color
+    spec:
+      containers:
+      - image: josefloressv/webapp-color:latest
+        name: webapp-color
+        envFrom:
+         - configMapRef:
+                name: webapp-color-configmap
