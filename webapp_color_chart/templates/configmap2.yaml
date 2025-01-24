@@ -1,0 +1,14 @@
+{{ if .Values.createConfig }}
+apiVersion: v1
+metadata:
+  name: webapp-color-configmap2
+kind: ConfigMap
+data:
+  {{- if eq .Values.env "staging"}}
+  FONT_COLOR: {{ .Values.app.font_color | default "orange" | lower }}
+  BG_COLOR: {{ lower .Values.app.bg_color | default "lightblue" | lower }}
+  {{ else }}
+  FONT_COLOR: {{ .Values.app.font_color | default "green" | lower }}
+  BG_COLOR: {{ lower .Values.app.bg_color | default "lightblue" | lower }}
+  {{- end }}
+{{ end }}

@@ -1,0 +1,4 @@
+env: "prod"
+app:
+ font_color: "red"
+ bg_color: "yellow"
