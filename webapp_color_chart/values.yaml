@@ -1,0 +1,14 @@
+# josefloressv/webapp-color:latest
+env: "prod"
+deployment:
+  image:
+    repository: josefloressv/webapp-color
+    tag: latest
+
+app:
+#  font_color: "RED"
+ bg_color: "GRAY"
+
+createConfig: true
+
+otroParametro: "otroValor"

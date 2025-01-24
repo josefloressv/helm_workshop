@@ -1,0 +1,4 @@
+env: "dev"
+app:
+ font_color: "yellow"
+ bg_color: "black"

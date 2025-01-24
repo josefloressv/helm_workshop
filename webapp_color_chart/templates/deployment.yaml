@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webapp-color
+    release: {{ .Release.Name }}
+    # release-revision: {{ .Release.Revision }}
+  name: webapp-color-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp-color
+  template:
+    metadata:
+      labels:
+        app: webapp-color
+        env: {{ .Values.env }}
+        release: {{ .Release.Name }}
+        # release-revision: {{ .Release.Revision }}
+    spec:
+      containers:
+      - image: {{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}
+        name: webapp-color
+        envFrom:
+         - configMapRef:
+                name: webapp-color-configmap

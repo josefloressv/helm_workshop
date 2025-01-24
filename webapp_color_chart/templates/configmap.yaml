@@ -1,0 +1,7 @@
+apiVersion: v1
+metadata:
+  name: webapp-color-configmap
+kind: ConfigMap
+data:
+  FONT_COLOR: {{ .Values.app.font_color | default "orange" | lower }}
+  BG_COLOR: {{ lower .Values.app.bg_color | default "lightblue" | lower }}
